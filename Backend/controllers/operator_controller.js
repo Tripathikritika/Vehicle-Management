@@ -4,6 +4,7 @@ const jwt = require('jsonwebtoken')
 const { registerValidation , LoginValidation} = require("../validation")
 
 const Registration = async( req, res) => {
+    // console.log(req.body)
     const { error } = registerValidation(req.body)
     if(error) {
          return res.status(400).send(error.details[0].message)
@@ -23,13 +24,13 @@ const Registration = async( req, res) => {
         await bcrypt.genSalt(10)
     )
     const new_operators = new Operators({
-        firstName : req.body.firstName,
-        lastName : req.body.lastName,
-        phoneNumber : req.body.phoneNumber,
+        firstName : req.body.fName,
+        lastName : req.body.lName,
+        phoneNumber : req.body.mobile,
         email : req.body.email,
         password : hashedPassword
     })
-
+    
     try { 
         await new_operators.save()
         res.send("Registration Successfull!")
