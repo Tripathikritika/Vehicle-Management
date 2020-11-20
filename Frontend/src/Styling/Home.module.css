@@ -1,0 +1,23 @@
+.link {
+  color: black;
+  outline: none;
+}
+.link:hover {
+  color: black;
+  outline: none;
+  text-decoration: none;
+}
+.profile {
+  border: 1px solid black;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin: 0px auto;
+}
+.form {
+  margin-left: 100px;
+}
+.icons {
+  position: absolute;
+  top: 45px;
+}
