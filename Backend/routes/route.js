@@ -3,7 +3,7 @@ const router = express.Router()
 const { getVehicles ,postVehicles } = require('../controllers/vehicle_controller')
 const { Registration , Login } = require('../controllers/operator_controller')
 
-router.get( '/allVehicles' , getVehicles )
+router.get( '/allVehicles/:email' , getVehicles )
 router.post( '/vehicles' , postVehicles )
 
 router.post('/register',Registration)
