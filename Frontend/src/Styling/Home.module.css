@@ -21,3 +21,26 @@
   position: absolute;
   top: 45px;
 }
+.searchDiv {
+  position: relative;
+}
+.searchIcon {
+  position: absolute;
+  top: 18px;
+  left: 19px;
+}
+.functionalityDiv {
+  border: 1px solid black;
+  border-radius: 13px;
+  background: linear-gradient(145deg, #b6a5ac, #d9e2e7);
+  box-shadow: 5px 5px 13px #969ca0, -5px -5px 13px #ffffff;
+}
+.sortDiv {
+  outline: none;
+  padding: 5px;
+  border-radius: 5px;
+}
+.allIcons {
+  color: #795548;
+  outline: none;
+}

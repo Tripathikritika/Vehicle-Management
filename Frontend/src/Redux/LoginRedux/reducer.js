@@ -1,8 +1,10 @@
 import actionConstant from './actionTypes'
+  
+import {loadData, saveData } from "./localStorage";
 
 const initState = {
-    isAuth : false,
-    email : "",
+    isAuth : loadData('isAuth') || false,
+    email : loadData('email') || "",
     error : ''
 }
 
@@ -14,6 +16,8 @@ const reducer = (state = initState , action) => {
                 error : ""
             }
         case actionConstant.USER_LOGIN_SUCCESS : 
+        saveData('isAuth' , true )
+        saveData('email' , action.payload )
             return {
                 ...state,
                 email : action.payload,
@@ -28,6 +32,13 @@ const reducer = (state = initState , action) => {
             return {
                 ...state
             
+            }
+            case actionConstant.USER_LOGOUT : 
+            saveData('isAuth',false)
+            saveData('email' , "" )
+            return {
+              ...state ,
+              isAuth : false,
             }
     }
 }

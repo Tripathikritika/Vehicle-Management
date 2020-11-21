@@ -1,7 +1,8 @@
 import actionConstant from './actionTypes'
 
 const initState = {
-    vehicleArray : []
+    vehicleArray : [],
+    total_count : 0
 }
 
 const reducer = ( state = initState , action) => {
@@ -13,12 +14,27 @@ const reducer = ( state = initState , action) => {
         case actionConstant.OPERATORS_VEHICLE_SUCCESS :
             return {
                 ...state,
-                vehicleArray : action.payload
+                vehicleArray : action.payload,
+                total_count : action.total
             }
         case actionConstant.OPERATORS_VEHICLE_FAILURE :
             return {
                 ...state
             }
+        case actionConstant.OPERATORS_POST_VEHICLE_REQUEST :
+            return {
+                ...state
+            }
+        case actionConstant.OPERATORS_POST_VEHICLE_SUCCESS :
+            return {
+                ...state,
+                vehicleArray :[...state.vehicleArray, action.payload]
+            }
+        case actionConstant.OPERATORS_POST_VEHICLE_FAILURE :
+            return {
+                ...state
+            }
+                   
         default : 
             return {
                 ...state

@@ -11,6 +11,7 @@ import { useDispatch , useSelector } from "react-redux"
 import { useEffect } from 'react';
 import { postLogin } from '../Redux/LoginRedux/action'
 import { postregister } from '../Redux/RegisterRedux/action'
+import { Link } from 'react-router-dom'
 
 function getModalStyle() {
     const top = 50;
@@ -243,11 +244,11 @@ export default function Home() {
         <div>
             <div className="container-fluid">
                 <div className="row">
-                    <div className="col-12 " style={{border:'1px solid black'}}>
+                    <div className="col-12 col-12 shadow p-3 mb-5 bg-light rounded">
                       <div className="row">
                             <div className="col-9 d-flex align-self-center">
                                 <h1>
-                                    <i className="fas fa-house-damage"></i>
+                                   <Link className={styles.link} to='/'><i className="fas fa-house-damage"></i></Link> 
                                 </h1>
                             </div>
                             <div className="col-3 d-flex align-self-center justify-content-between">

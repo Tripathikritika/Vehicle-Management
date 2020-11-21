@@ -31,3 +31,7 @@ export const postLogin = (payload) => (dispatch) => {
          })
 
 }
+export const logoutFunction = () => ({
+    type : actionConstant.USER_LOGOUT
+})
+
