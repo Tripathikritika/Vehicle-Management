@@ -1,7 +1,7 @@
 import React,{useState} from 'react'
 import { useEffect } from 'react'
 import { useDispatch , useSelector } from "react-redux"
-import { Link, Redirect } from 'react-router-dom'
+import { Link, Redirect, useHistory } from 'react-router-dom'
 import Modal from '@material-ui/core/Modal';
 import { makeStyles } from '@material-ui/core/styles';
 import { postRequest ,getRequest} from '../Redux/Operators/action'
@@ -69,7 +69,7 @@ export default function Main() {
     const stateEmail = useSelector((state) => state.loginReducer.email)
     const isAuth = useSelector((state) => state.loginReducer.isAuth)
     const total = useSelector((state) => state.operatorReducer.total_count)
-
+    const history = useHistory()
     useEffect(() => {
         dispatch(getRequest(stateEmail,1,sorted,filter))
     }, [stateEmail,1,sorted,filter])
@@ -172,7 +172,9 @@ export default function Main() {
     useEffect(() => {
     setItemArray(StateitemArray)
     }, [StateitemArray])
-
+    const handleDescription = (name) => {
+        history.push(`/details/${name}`)
+    }
     if(!isAuth){
         return <Redirect to='/'/>
     }   
@@ -240,7 +242,7 @@ export default function Main() {
                                             <div className="card mb-3">
                                                 <div className="row no-gutters">
                                                     <div className="col-md-4">
-                                                        <Link to ={`/main/${item.name}`}><img src={item.image} style={{height:'auto'}} className="card-img img-fluid" alt={item.name}/></Link>
+                                                        <img onClick={() =>handleDescription(item.name)} src={item.image} style={{height:'auto'}} className="card-img img-fluid" alt={item.name}/>
                                                     </div>
                                                     <div className="col-md-8">
                                                         <div className="card-body">
