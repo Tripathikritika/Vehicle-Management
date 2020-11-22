@@ -13,7 +13,7 @@ const getVehicles =async ( req , res ) => {
     const endIndex = page * limit;
 
     const results = {};
-    results.totalCount = await Vehicles.countDocuments().exec()
+    results.totalCount = await Vehicles.countDocuments({operators : req.params.email}).exec()
 
     if (endIndex < (await Vehicles.countDocuments().exec())) {
         results.next = {
